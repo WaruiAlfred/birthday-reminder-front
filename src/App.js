@@ -1,13 +1,13 @@
 import { ThemeProvider } from "styled-components";
+import Container from "./components/Container";
 import GlobalStyles from "./components/styled/Global";
-
-const theme = {}
+import { theme } from "./theme";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
-      <p>Birthday Reminder</p>
+      <Container/>
     </ThemeProvider>
   );
 }
