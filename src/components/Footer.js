@@ -1,4 +1,4 @@
-import { StyledFooter,SocialIcons } from "./styled/Footer.styled";
+import { StyledFooter, SocialIcons } from "./styled/Footer.styled";
 import { FaGithub, FaTwitter, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
