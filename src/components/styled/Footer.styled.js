@@ -3,13 +3,12 @@ import styled from "styled-components";
 export const StyledFooter = styled.footer`
   grid-row: footer-start / footer-end;
   background-color: ${({ theme }) => theme.colors.primary};
-  color: #fff;
 
   display: flex;
   align-items: center;
   justify-content: space-around;
 
-  p:nth-child(2){
+  p:nth-child(2) {
     font-style: italic;
     font-size: 1.8rem;
   }
@@ -19,9 +18,15 @@ export const SocialIcons = styled.div`
   display: flex;
   flex-direction: column;
 
-  a {
-    &:not(:last-child) {
-      margin-right: 2rem;
+  div {
+    a {
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      &:hover {
+        border-bottom: 0.6rem solid #fff;
+      }
     }
   }
 `;

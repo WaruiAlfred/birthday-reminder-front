@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 2rem;
+    color: #fff;
   }
 `;
 
