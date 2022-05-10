@@ -1,7 +1,11 @@
-import { MainContent } from "../styled/Content.styled";
+import { MainContent, BodyImg } from "../styled/Content.styled";
 
 function Content() {
-  return <MainContent>Content</MainContent>;
+  return (
+    <MainContent>
+      <BodyImg />
+    </MainContent>
+  );
 }
 
 export default Content;
