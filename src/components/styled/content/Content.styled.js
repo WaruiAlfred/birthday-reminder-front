@@ -7,7 +7,7 @@ export const MainContent = styled.main`
 
   display: grid;
   grid-template-rows: minmax(10rem, 14rem) 1fr;
-  grid-template-columns: minmax(1rem, 5rem) 1fr minmax(1rem, 5rem);
+  grid-template-columns: minmax(2rem, 5rem) 1fr minmax(1rem, 5rem);
 `;
 
 export const BodyImg = styled.div`
