@@ -1,13 +1,16 @@
-import { FormContainer } from "../styled/forms/Form.styled";
+import {
+  BirthdateInputs,
+  FormContainer,
+  StyledButton,
+} from "../styled/forms/Form.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
-import Button from "./utilities/Button";
 
 const BirthdayEntryForm = () => {
   return (
-    <FormContainer>
-      <h4>Input BirthDay</h4>
+    <FormContainer width="65rem">
+      <h3>Input BirthDay</h3>
       <Formik
         initialValues={{
           dearOneName: "",
@@ -34,38 +37,46 @@ const BirthdayEntryForm = () => {
         }}
       >
         <Form>
-          <TextNumberInput
-            label="Dear One's Name"
-            name="firstName"
-            type="text"
-            placeholder="John"
-          />
-
-          <p>Birthdate:</p>
           <div>
             <TextNumberInput
-              label="Day"
-              name="dayOfBirth"
-              type="number"
-              placeholder="02"
+              label="Dear One's Name"
+              name="firstName"
+              type="text"
+              placeholder="John"
             />
 
-            <TextNumberInput
-              label="Month"
-              name="monthOfBirth"
-              type="number"
-              placeholder="12"
-            />
+            <p>Birthdate:</p>
+            <BirthdateInputs>
+              <div>
+                <TextNumberInput
+                  label="Day"
+                  name="dayOfBirth"
+                  type="number"
+                  placeholder="02"
+                />
+              </div>
 
-            <TextNumberInput
-              label="Year"
-              name="yearOfBirth"
-              type="number"
-              placeholder="1998"
-            />
+              <div>
+                <TextNumberInput
+                  label="Month"
+                  name="monthOfBirth"
+                  type="number"
+                  placeholder="12"
+                />
+              </div>
+
+              <div>
+                <TextNumberInput
+                  label="Year"
+                  name="yearOfBirth"
+                  type="number"
+                  placeholder="1998"
+                />
+              </div>
+            </BirthdateInputs>
           </div>
 
-          <Button type="submit">Add</Button>
+          <StyledButton type="submit">Add</StyledButton>
         </Form>
       </Formik>
     </FormContainer>

@@ -1,13 +1,12 @@
-import { FormContainer } from "../styled/forms/Form.styled";
+import { FormContainer,StyledButton } from "../styled/forms/Form.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
-import Button from "./utilities/Button";
 
 const LoginForm = () => {
   return (
     <FormContainer>
-      <h4>Login</h4>
+      <h3>Login</h3>
       <Formik
         initialValues={{
           userName: "",
@@ -29,21 +28,23 @@ const LoginForm = () => {
         }}
       >
         <Form>
-          <TextNumberInput
-            label="Username"
-            name="userName"
-            type="text"
-            placeholder="ProUser"
-          />
+          <div>
+            <TextNumberInput
+              label="Username"
+              name="userName"
+              type="text"
+              placeholder="ProUser"
+            />
 
-          <TextNumberInput
-            label="Password"
-            name="password"
-            type="password"
-            placeholder="Your password"
-          />
+            <TextNumberInput
+              label="Password"
+              name="password"
+              type="password"
+              placeholder="Your password"
+            />
+          </div>
 
-          <Button type="submit">Login</Button>
+          <StyledButton type="submit">Login</StyledButton>
         </Form>
       </Formik>
     </FormContainer>

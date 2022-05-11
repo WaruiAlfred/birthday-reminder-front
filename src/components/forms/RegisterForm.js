@@ -1,13 +1,16 @@
-import { FormContainer } from "../styled/forms/Form.styled";
+import {
+  FormContainer,
+  RegisterFormInputs,
+  StyledButton,
+} from "../styled/forms/Form.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
-import Button from "./utilities/Button";
 
 const RegisterForm = () => {
   return (
-    <FormContainer>
-      <h4>Create Account</h4>
+    <FormContainer width="65rem">
+      <h3>Create Account</h3>
       <Formik
         initialValues={{
           firstName: "",
@@ -46,49 +49,57 @@ const RegisterForm = () => {
         }}
       >
         <Form>
-          <TextNumberInput
-            label="First Name"
-            name="firstName"
-            type="text"
-            placeholder="John"
-          />
+          <div>
+            <RegisterFormInputs>
+              <div>
+                <TextNumberInput
+                  label="First Name"
+                  name="firstName"
+                  type="text"
+                  placeholder="John"
+                />
 
-          <TextNumberInput
-            label="Last Name"
-            name="lastName"
-            type="text"
-            placeholder="Doe"
-          />
+                <TextNumberInput
+                  label="Last Name"
+                  name="lastName"
+                  type="text"
+                  placeholder="Doe"
+                />
 
-          <TextNumberInput
-            label="Username"
-            name="userName"
-            type="text"
-            placeholder="ProUser"
-          />
+                <TextNumberInput
+                  label="Username"
+                  name="userName"
+                  type="text"
+                  placeholder="ProUser"
+                />
+              </div>
 
-          <TextNumberInput
-            label="Email Address"
-            name="email"
-            type="email"
-            placeholder="joe@gmail.com"
-          />
+              <div>
+                <TextNumberInput
+                  label="Email Address"
+                  name="email"
+                  type="email"
+                  placeholder="joe@gmail.com"
+                />
 
-          <TextNumberInput
-            label="Password"
-            name="password"
-            type="password"
-            placeholder="Your password"
-          />
+                <TextNumberInput
+                  label="Password"
+                  name="password"
+                  type="password"
+                  placeholder="Your password"
+                />
 
-          <TextNumberInput
-            label="Confrim Password"
-            name="passwordConfirmation"
-            type="password"
-            placeholder="Confrim password"
-          />
+                <TextNumberInput
+                  label="Confrim Password"
+                  name="passwordConfirmation"
+                  type="password"
+                  placeholder="Confrim password"
+                />
+              </div>
+            </RegisterFormInputs>
+          </div>
 
-          <Button type="submit">Create</Button>
+          <StyledButton type="submit">Create</StyledButton>
         </Form>
       </Formik>
     </FormContainer>
