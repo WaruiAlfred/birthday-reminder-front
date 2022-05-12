@@ -3,10 +3,14 @@ import { FaHome } from "react-icons/fa";
 import { BiBookAdd } from "react-icons/bi";
 import { RiLoginCircleFill, RiLogoutCircleFill } from "react-icons/ri";
 
-const SideMenu = () => {
+const SideMenu = ({ sideNavToggle }) => {
+  const closeSideMenuHandler = () => {
+    setTimeout(sideNavToggle(false), 5);
+  };
+
   return (
     <StyledSideMenu>
-      <button>&times;</button>
+      <button onClick={closeSideMenuHandler}>&times;</button>
       <div>
         <StyledLink to="#">
           <FaHome />

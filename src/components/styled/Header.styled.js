@@ -12,7 +12,16 @@ export const StyledHeader = styled.header`
   div {
     display: flex;
     align-items: center;
-    /* margin-left: 3rem; */
+
+    button {
+      border: none;
+      background: none;
+      font-size: 2rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     h1 {
       font-family: "Lobster", cursive;
@@ -31,11 +40,12 @@ export const StyledSideMenu = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   opacity: 0.9;
   height: 100vh;
-  width: ${({ width }) => width || "25rem"};
+  width: 25rem;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
+  transition: all 0.5s;
 
   display: flex;
   flex-direction: column;
@@ -45,7 +55,7 @@ export const StyledSideMenu = styled.div`
     border: none;
     background: none;
     color: currentColor;
-    font-size: 5rem;
+    font-size: 5rem !important;
     margin: 3rem;
 
     &:hover {
