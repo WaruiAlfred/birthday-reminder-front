@@ -67,7 +67,7 @@ export const StyledButton = styled.button`
   );
   color: #fff;
   font-size: 1.7rem;
-  width: 17rem;
+  width: ${({ width }) => width || "17rem"};
   height: 4rem;
 
   &:hover {
@@ -90,7 +90,7 @@ export const BirthdateInputs = styled.div`
   display: flex;
   justify-content: space-between;
 
-  div{
+  div {
     width: 90%;
   }
 `;

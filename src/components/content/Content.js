@@ -1,17 +1,11 @@
 import { MainContent, BodyImg } from "../styled/content/Content.styled";
-// import Details from "./sub-contents/Details";
-import BirthdayEntryForm from "../forms/BirthdayEntryForm";
-import LoginForm from "../forms/LoginForm";
-import RegisterForm from "../forms/RegisterForm";
+import Details from "./sub-contents/Details";
 
 function Content() {
   return (
     <MainContent>
       <BodyImg />
-      {/*<Details/>*/}
-      <BirthdayEntryForm />
-      <LoginForm />
-      <RegisterForm />
+      <Details />
     </MainContent>
   );
 }

@@ -10,7 +10,7 @@ export const WelcomeDiv = styled.div`
   align-items: center;
   margin-top: 1rem;
 
-  h3{
+  h3 {
     font-family: "Lobster", cursive;
   }
-`
+`;
