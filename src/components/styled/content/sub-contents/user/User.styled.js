@@ -19,7 +19,7 @@ export const NoBirthdaysContainerDiv = styled.div`
   justify-content: space-around;
 
   img {
-    width: 70rem;
+    max-width: 70rem;
     height: 60rem;
   }
 
