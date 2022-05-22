@@ -1,7 +1,8 @@
 import { StyledSideMenu, StyledLink } from "./styled/Header.styled";
 import { FaHome } from "react-icons/fa";
 import { BiBookAdd } from "react-icons/bi";
-import { RiLoginCircleFill, RiLogoutCircleFill } from "react-icons/ri";
+import { RiLoginCircleFill } from "react-icons/ri";
+import { MdManageAccounts } from "react-icons/md";
 
 const SideMenu = ({ sideNavToggle }) => {
   const closeSideMenuHandler = () => {
@@ -12,21 +13,21 @@ const SideMenu = ({ sideNavToggle }) => {
     <StyledSideMenu>
       <button onClick={closeSideMenuHandler}>&times;</button>
       <div>
-        <StyledLink to="#">
+        <StyledLink to="/">
           <FaHome />
           Home
         </StyledLink>
-        <StyledLink to="#">
+        <StyledLink to="addBirthday">
           <BiBookAdd />
           Add Birthday
         </StyledLink>
-        <StyledLink to="#">
+        <StyledLink to="register">
+          <MdManageAccounts />
+          Create account
+        </StyledLink>
+        <StyledLink to="login">
           <RiLoginCircleFill />
           Login
-        </StyledLink>
-        <StyledLink to="#">
-          <RiLogoutCircleFill />
-          Logout
         </StyledLink>
       </div>
     </StyledSideMenu>
