@@ -1,18 +1,19 @@
-import {
-  StyledDetails,
-  WelcomeDiv,
-} from "../../styled/content/sub-contents/Details.styled";
-import { FaBirthdayCake } from "react-icons/fa";
-import NoBirthdays from "./user/NoBirthdays";
+import { StyledDetails } from "../../styled/content/sub-contents/Details.styled";
+import { Routes, Route } from "react-router-dom";
+import Home from "../../Home";
+import BirthdayEntryForm from "../../forms/BirthdayEntryForm";
+import LoginForm from "../../forms/LoginForm";
+import RegisterForm from "../../forms/RegisterForm";
 
 function Details() {
   return (
     <StyledDetails>
-      <WelcomeDiv>
-        <h3>Welcome New User</h3>
-        <FaBirthdayCake color="#BB2E45" size="2em" />
-      </WelcomeDiv>
-      <NoBirthdays />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="addBirthday" element={<BirthdayEntryForm />} />
+        <Route path="register" element={<RegisterForm />} />
+        <Route path="login" element={<LoginForm />} />
+      </Routes>
     </StyledDetails>
   );
 }
