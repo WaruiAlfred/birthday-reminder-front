@@ -1,15 +1,18 @@
-import { FormContainer,StyledButton } from "../styled/forms/Form.styled";
+import { FormContainer, StyledButton } from "../styled/forms/Form.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
+import { useHttp } from "../../hooks/use-http";
 
 const LoginForm = () => {
+  const { sendRequest } = useHttp();
+
   return (
     <FormContainer>
       <h3>Login</h3>
       <Formik
         initialValues={{
-          userName: "",
+          username: "",
           password: "",
         }}
         validationSchema={Yup.object({
@@ -22,6 +25,8 @@ const LoginForm = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
+            console.log(values);
+            sendRequest("POST", "accounts/login/", values);
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
@@ -31,7 +36,7 @@ const LoginForm = () => {
           <div>
             <TextNumberInput
               label="Username"
-              name="userName"
+              name="username"
               type="text"
               placeholder="ProUser"
             />
