@@ -15,7 +15,7 @@ const RegisterForm = () => {
         initialValues={{
           firstName: "",
           lastName: "",
-          userName: "",
+          username: "",
           email: "",
           password: "",
           passwordConfirmation: "",
@@ -68,7 +68,7 @@ const RegisterForm = () => {
 
                 <TextNumberInput
                   label="Username"
-                  name="userName"
+                  name="username"
                   type="text"
                   placeholder="ProUser"
                 />
