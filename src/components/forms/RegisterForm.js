@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   FormContainer,
   RegisterFormInputs,
@@ -6,25 +7,36 @@ import {
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
+import { useHttp } from "../../hooks/use-http";
+import LoadingSpinner from "./utilities/LoadingSpinner";
+import ErrorMessage from "./utilities/ErrorMessage";
 
 const RegisterForm = () => {
+  const { sendRequest, data, error, loading } = useHttp();
+  const navigate = useNavigate();
+
+  if (data) {
+    navigate("/");
+  }
+
   return (
     <FormContainer width="65rem">
+      {loading && <LoadingSpinner loading={loading} />}
       <h3>Create Account</h3>
       <Formik
         initialValues={{
-          firstName: "",
-          lastName: "",
+          first_name: "",
+          last_name: "",
           username: "",
           email: "",
           password: "",
-          passwordConfirmation: "",
+          password2: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string()
+          first_name: Yup.string()
             .max(15, "Must be 15 characters or less")
             .required("Required"),
-          lastName: Yup.string()
+          last_name: Yup.string()
             .max(15, "Must be 15 characters or less")
             .required("Required"),
           username: Yup.string()
@@ -36,14 +48,14 @@ const RegisterForm = () => {
           password: Yup.string()
             .min(8, "Must be at least 8 characters long")
             .required("Required"),
-          passwordConfirmation: Yup.string().oneOf(
+          password2: Yup.string().oneOf(
             [Yup.ref("password"), null],
             "Passwords do not match"
           ),
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            sendRequest("POST", "accounts/register/", values);
             setSubmitting(false);
           }, 400);
         }}
@@ -54,14 +66,14 @@ const RegisterForm = () => {
               <div>
                 <TextNumberInput
                   label="First Name"
-                  name="firstName"
+                  name="first_name"
                   type="text"
                   placeholder="John"
                 />
 
                 <TextNumberInput
                   label="Last Name"
-                  name="lastName"
+                  name="last_name"
                   type="text"
                   placeholder="Doe"
                 />
@@ -91,9 +103,9 @@ const RegisterForm = () => {
 
                 <TextNumberInput
                   label="Confrim Password"
-                  name="passwordConfirmation"
+                  name="password2"
                   type="password"
-                  placeholder="Confrim password"
+                  placeholder="Confirm password"
                 />
               </div>
             </RegisterFormInputs>
@@ -102,6 +114,7 @@ const RegisterForm = () => {
           <StyledButton type="submit">Create</StyledButton>
         </Form>
       </Formik>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </FormContainer>
   );
 };

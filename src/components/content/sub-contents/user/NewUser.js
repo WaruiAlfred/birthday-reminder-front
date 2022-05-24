@@ -1,11 +1,19 @@
-import { NewUserContainerDiv } from "../../../styled/content/sub-contents/user/User.styled";
+import {
+  NewUserContainerDiv,
+  StyledAuthLink,
+} from "../../../styled/content/sub-contents/user/User.styled";
 import { StyledButton } from "../../../styled/forms/Form.styled";
 
 const NewUser = () => {
-  return <NewUserContainerDiv>
-    <p>You must have an account to set reminders.</p>
-    <StyledButton>Register/Login</StyledButton>
-  </NewUserContainerDiv>;
+  return (
+    <NewUserContainerDiv>
+      <p>You must have an account to set reminders.</p>
+      <StyledButton>
+        <StyledAuthLink to="register">Register</StyledAuthLink>/
+        <StyledAuthLink to="login">Login</StyledAuthLink>
+      </StyledButton>
+    </NewUserContainerDiv>
+  );
 };
 
 export default NewUser;

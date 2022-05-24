@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const NewUserContainerDiv = styled.div`
   max-width: 50rem;
@@ -35,5 +36,15 @@ export const NoBirthdaysContainerDiv = styled.div`
         font-weight: bold;
       }
     }
+  }
+`;
+
+// Links in NewUser component
+export const StyledAuthLink = styled(Link)`
+  text-decoration: none;
+  color: currentColor;
+
+  &:hover {
+    color: blue;
   }
 `;

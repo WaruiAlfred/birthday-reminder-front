@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHomeContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 `;
 
 export const Description = styled.div`
