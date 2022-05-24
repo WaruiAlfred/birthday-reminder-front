@@ -42,9 +42,7 @@ export const useHttp = () => {
       if (method === "POST") {
         try {
           dispatch({ type: "SEND" });
-          console.log(`${BASE_URL}${specificUrl}`, body);
           const response = await axios.post(`${BASE_URL}${specificUrl}`, body);
-          console.log(response);
           dispatch({ type: "RESPONSE", responseData: response.data });
         } catch (error) {
           dispatch({ type: "ERROR", errorMessage: error.message });
