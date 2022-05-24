@@ -8,6 +8,7 @@ const Card = styled.div`
   width: ${({ width }) => width || "24rem"};
   height: ${({ height }) => height || "10rem"};
   font-size: ${({ font }) => font || "1.5rem"};
+  font-weight: 300;
 `;
 
 export default Card;
