@@ -1,14 +1,28 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FormContainer, StyledButton } from "../styled/forms/Form.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
 import { useHttp } from "../../hooks/use-http";
+import LoadingSpinner from "./utilities/LoadingSpinner";
+import ErrorMessage from "./utilities/ErrorMessage";
 
 const LoginForm = () => {
-  const { sendRequest } = useHttp();
+  const { sendRequest, data, error, loading } = useHttp();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("tokenData", JSON.stringify(data));
+  }, [data]);
+
+  if(data){
+    navigate("/");
+  }
 
   return (
     <FormContainer>
+      {loading && <LoadingSpinner loading={loading} />}
       <h3>Login</h3>
       <Formik
         initialValues={{
@@ -16,7 +30,8 @@ const LoginForm = () => {
           password: "",
         }}
         validationSchema={Yup.object({
-          userName: Yup.string()
+          username: Yup.string()
+            .min(2, "Must be more than 2 characters")
             .max(15, "Must be 15 characters or less")
             .required("Required"),
           password: Yup.string()
@@ -25,9 +40,7 @@ const LoginForm = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            console.log(values);
             sendRequest("POST", "accounts/login/", values);
-            alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
           }, 400);
         }}
@@ -52,6 +65,7 @@ const LoginForm = () => {
           <StyledButton type="submit">Login</StyledButton>
         </Form>
       </Formik>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </FormContainer>
   );
 };
