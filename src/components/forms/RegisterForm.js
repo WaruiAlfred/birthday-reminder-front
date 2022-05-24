@@ -27,7 +27,7 @@ const RegisterForm = () => {
           lastName: Yup.string()
             .max(15, "Must be 15 characters or less")
             .required("Required"),
-          userName: Yup.string()
+          username: Yup.string()
             .max(15, "Must be 15 characters or less")
             .required("Required"),
           email: Yup.string()
