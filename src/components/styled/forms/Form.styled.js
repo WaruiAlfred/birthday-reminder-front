@@ -94,3 +94,16 @@ export const BirthdateInputs = styled.div`
     width: 90%;
   }
 `;
+
+// Error Message Div
+export const ErrorMessageDiv = styled.div`
+  width: 100%;
+  height: auto;
+  border-radius: .5rem;
+  border: none;
+  margin: 1.5rem 0;
+  background-color: #f00000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+`;
