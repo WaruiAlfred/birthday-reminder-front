@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   FormContainer,
   RegisterFormInputs,
@@ -16,7 +16,8 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   if (data) {
-    navigate("/");
+    console.log(data)
+    navigate("/login");
   }
 
   return (
@@ -115,6 +116,9 @@ const RegisterForm = () => {
         </Form>
       </Formik>
       {error && <ErrorMessage>{error}</ErrorMessage>}
+      <p>
+        Already have an account? <Link to="/login">Login</Link>
+      </p>
     </FormContainer>
   );
 };

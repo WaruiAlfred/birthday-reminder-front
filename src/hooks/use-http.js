@@ -45,6 +45,7 @@ export const useHttp = () => {
           const response = await axios.post(`${BASE_URL}${specificUrl}`, body);
           dispatch({ type: "RESPONSE", responseData: response.data });
         } catch (error) {
+          console.log(error)
           dispatch({ type: "ERROR", errorMessage: error.message });
         }
       }

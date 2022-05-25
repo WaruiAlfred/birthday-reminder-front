@@ -27,6 +27,13 @@ export const FormContainer = styled.div`
       margin-left: 1.4rem;
     }
   }
+
+  p{
+    font-weight: 300;
+    font-size: 1.7rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
 `;
 
 // Form Inputs
