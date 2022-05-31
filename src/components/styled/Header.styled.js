@@ -21,6 +21,11 @@ export const StyledHeader = styled.header`
       &:hover {
         cursor: pointer;
       }
+
+      &:focus {
+        border: none;
+        outline: ${({ theme }) => theme.colors.primary};
+      }
     }
 
     h1 {
@@ -61,6 +66,11 @@ export const StyledSideMenu = styled.div`
     &:hover {
       cursor: pointer;
     }
+
+    &:focus {
+        border: none;
+        outline: ${({ theme }) => theme.colors.primary};
+      }
   }
 
   div {

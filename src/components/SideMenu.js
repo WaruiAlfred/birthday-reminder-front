@@ -1,10 +1,20 @@
+import { useContext } from "react";
 import { StyledSideMenu, StyledLink } from "./styled/Header.styled";
 import { FaHome } from "react-icons/fa";
 import { BiBookAdd } from "react-icons/bi";
-import { RiLoginCircleFill, RiAccountCircleFill } from "react-icons/ri";
+import {
+  RiLoginCircleFill,
+  RiAccountCircleFill,
+  RiLogoutCircleFill,
+} from "react-icons/ri";
 import { MdManageAccounts } from "react-icons/md";
+import { AppContext } from "../store/appContext";
 
 const SideMenu = ({ sideNavToggle }) => {
+  const { loggedInUserTokenData, logout } = useContext(AppContext);
+
+  const loggedIn = !!loggedInUserTokenData;
+
   const closeSideMenuHandler = () => {
     setTimeout(sideNavToggle(false), 5);
   };
@@ -17,21 +27,31 @@ const SideMenu = ({ sideNavToggle }) => {
           <FaHome />
           Home
         </StyledLink>
-        <StyledLink to="/addBirthday">
-          <BiBookAdd />
-          Add Birthday
-        </StyledLink>
+        {loggedIn && (
+          <StyledLink to="/addBirthday">
+            <BiBookAdd />
+            Add Birthday
+          </StyledLink>
+        )}
         <StyledLink to="/register">
           <MdManageAccounts />
-          Create account
+          Create {loggedIn && "new"} account
         </StyledLink>
-        <StyledLink to="/account">
-          <RiAccountCircleFill />
-          Account
-        </StyledLink>
-        <StyledLink to="/login">
-          <RiLoginCircleFill />
-          Login
+        {loggedIn && (
+          <StyledLink to="/account">
+            <RiAccountCircleFill />
+            Account
+          </StyledLink>
+        )}
+        {!loggedIn && (
+          <StyledLink to="/login">
+            <RiLoginCircleFill />
+            Login
+          </StyledLink>
+        )}
+        <StyledLink to="/" onClick={logout}>
+          <RiLogoutCircleFill />
+          Logout
         </StyledLink>
       </div>
     </StyledSideMenu>

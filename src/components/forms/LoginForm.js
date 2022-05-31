@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FormContainer, StyledButton } from "../styled/forms/Form.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -45,10 +45,11 @@ const LoginForm = () => {
           setTimeout(() => {
             sendRequest("POST", "accounts/login/", values);
 
-            // if (data) {
+            if (data) {
+              // localStorage.setItem("tokenData", JSON.stringify(data));
               onSetToken(data);
-            //   navigate("/");
-            // }
+              navigate("/");
+            }
 
             setSubmitting(false);
           }, 400);
@@ -75,7 +76,9 @@ const LoginForm = () => {
         </Form>
       </Formik>
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      <p>Need an account? <Link to='/register'>Create account</Link></p>
+      <p>
+        Need an account? <Link to="/register">Create account</Link>
+      </p>
     </FormContainer>
   );
 };

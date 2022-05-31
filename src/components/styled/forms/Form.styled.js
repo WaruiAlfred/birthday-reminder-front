@@ -28,7 +28,7 @@ export const FormContainer = styled.div`
     }
   }
 
-  p{
+  p {
     font-weight: 300;
     font-size: 1.7rem;
     text-align: center;
@@ -81,6 +81,11 @@ export const StyledButton = styled.button`
     cursor: pointer;
     transform: translateY(-2px);
   }
+
+  &:focus {
+    border: none;
+    outline: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 // RegisterForm
@@ -132,6 +137,11 @@ export const SuccessMessageDiv = styled.div`
 
     &:hover {
       cursor: pointer;
+    }
+
+    &:focus {
+      border: none;
+      outline: ${({ theme }) => theme.colors.primary};
     }
   }
 `;
