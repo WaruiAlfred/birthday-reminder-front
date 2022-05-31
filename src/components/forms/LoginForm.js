@@ -1,5 +1,5 @@
-import { useEffect, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { FormContainer, StyledButton } from "../styled/forms/Form.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -11,17 +11,7 @@ import { AppContext } from "../../store/appContext";
 
 const LoginForm = () => {
   const { sendRequest, data, error, loading } = useHttp();
-  const navigate = useNavigate();
   const { onSetToken } = useContext(AppContext);
-
-  // useEffect(() => {
-  //   onSetToken(data);
-  // }, [data, onSetToken]);
-
-  // if (data) {
-  //   onSetToken(data);
-  //   navigate("/");
-  // }
 
   return (
     <FormContainer>
@@ -46,9 +36,7 @@ const LoginForm = () => {
             sendRequest("POST", "accounts/login/", values);
 
             if (data) {
-              // localStorage.setItem("tokenData", JSON.stringify(data));
-              onSetToken(data);
-              navigate("/");
+              onSetToken(data, values.username);
             }
 
             setSubmitting(false);

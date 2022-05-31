@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   loggedInUserTokenData: null,
+  username:'',
   onSetToken: (token) => {},
   logout: () => {},
 };
 
-const initialReducerValues ={
+const initialReducerValues = {
   loggedInUserTokenData: null,
-}
+};
 
 const contextReducer = (_, action) => {
   switch (action.type) {
@@ -23,15 +24,24 @@ const contextReducer = (_, action) => {
 export const AppContext = createContext(initialValues);
 
 const AppContextProvider = ({ children }) => {
-  const [contextValues, dispatch] = useReducer(contextReducer, initialReducerValues);
+  const [contextValues, dispatch] = useReducer(
+    contextReducer,
+    initialReducerValues
+  );
   const navigate = useNavigate();
 
   const storedToken = localStorage.getItem("tokenData");
+  const username = localStorage.getItem("username");
 
-  const setTokenHandler = useCallback((token) => {
-    dispatch({ type: "SET_TOKEN", userToken: token });
-    localStorage.setItem("tokenData", JSON.stringify(token));
-  }, []);
+  const setTokenHandler = useCallback(
+    (token, username) => {
+      dispatch({ type: "SET_TOKEN", userToken: token });
+      localStorage.setItem("tokenData", JSON.stringify(token));
+      localStorage.setItem("username", username);
+      navigate("/");
+    },
+    [navigate]
+  );
 
   const logoutHandler = () => {
     localStorage.removeItem("tokenData");
@@ -42,6 +52,7 @@ const AppContextProvider = ({ children }) => {
     loggedInUserTokenData: JSON.parse(storedToken),
     onSetToken: setTokenHandler,
     logout: logoutHandler,
+    username,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
