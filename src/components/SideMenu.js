@@ -34,7 +34,7 @@ const SideMenu = ({ sideNavToggle }) => {
           </StyledLink>
         )}
         <StyledLink to="/register">
-          <MdManageAccounts />
+          <MdManageAccounts/>
           Create {loggedIn && "new"} account
         </StyledLink>
         {loggedIn && (
