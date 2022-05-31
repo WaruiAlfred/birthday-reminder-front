@@ -26,12 +26,12 @@ export const useHttp = () => {
   const [httpState, dispatch] = useReducer(useHttpReducer, initialState);
 
   const sendRequest = useCallback(
-    async (method = "GET", specificUrl = "", body) => {
+    async (method = "GET", specificUrl = "", body = {}) => {
       // GET request
       if (method === "GET") {
         try {
           dispatch({ type: "SEND" });
-          const response = await axios.get();
+          const response = await axios.get(`${BASE_URL}${specificUrl}`);
           dispatch({ type: "RESPONSE", responseData: response.data });
         } catch (error) {
           dispatch({ type: "ERROR", errorMessage: error.message });
@@ -45,7 +45,7 @@ export const useHttp = () => {
           const response = await axios.post(`${BASE_URL}${specificUrl}`, body);
           dispatch({ type: "RESPONSE", responseData: response.data });
         } catch (error) {
-          console.log(error)
+          console.log(error);
           dispatch({ type: "ERROR", errorMessage: error.message });
         }
       }
