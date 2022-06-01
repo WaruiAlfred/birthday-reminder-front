@@ -1,10 +1,16 @@
-import { StyledHomeContainer, Description, Join } from "./styled/Home.styled";
+import { Fragment, useContext } from "react";
+import { Description, Join } from "./styled/Home.styled";
 import Card from "./styled/Card.styled";
 import NewUser from "./content/sub-contents/user/NewUser";
+import { AppContext } from "../store/appContext";
+import { StyledAuthLink } from "./styled/content/sub-contents/user/User.styled";
+import { StyledButton } from "./styled/forms/Form.styled";
 
 function Home() {
+  const { loggedInUserTokenData } = useContext(AppContext);
+
   return (
-    <StyledHomeContainer>
+    <Fragment>
       <Description>
         <p>
           Ever found yourself forgetting your dear ones birthdays? Here we've
@@ -23,9 +29,15 @@ function Home() {
         </div>
       </Description>
       <Join>
-        <NewUser/>
+        {loggedInUserTokenData ? (
+          <StyledButton>
+            <StyledAuthLink to="addBirthday">Add Birthdays</StyledAuthLink>
+          </StyledButton>
+        ) : (
+          <NewUser />
+        )}
       </Join>
-    </StyledHomeContainer>
+    </Fragment>
   );
 }
 

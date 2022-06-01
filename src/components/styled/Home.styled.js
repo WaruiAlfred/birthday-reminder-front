@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledHomeContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-`;
+// export const StyledHomeContainer = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+// `;
 
 export const Description = styled.div`
   padding: 2rem;
@@ -28,5 +28,6 @@ export const Description = styled.div`
 `;
 
 export const Join = styled.div`
-  align-self: center;
+  text-align: center;
+  margin: 2rem 0;
 `;
