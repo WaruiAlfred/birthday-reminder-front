@@ -1,4 +1,4 @@
-import BarLoader from "react-spinners/BarLoader";
+import { FadeLoader, BarLoader } from "react-spinners";
 import { css } from "@emotion/react";
 
 const override = css`
@@ -8,15 +8,14 @@ const override = css`
   width: 100%;
 `;
 
-const LoadingSpinner = (props) => {
+export const BarLoadingSpinner = ({ loading }) => {
   return (
-    <BarLoader
-      color={"#BB2E45"}
-      loading={props.loading}
-      size={100}
-      css={override}
-    />
+    <BarLoader color={"#BB2E45"} loading={loading} size={100} css={override} />
   );
 };
 
-export default LoadingSpinner;
+export const FadeLoadingSpinner = ({ loading }) => {
+  return (
+    <FadeLoader color={"#BB2E45"} loading={loading} size={100} css={override} />
+  );
+};
