@@ -31,7 +31,7 @@ function Home() {
       <Join>
         {loggedInUserTokenData ? (
           <StyledButton>
-            <StyledAuthLink to="addBirthday">Add Birthdays</StyledAuthLink>
+            <StyledAuthLink to="/addBirthday">Add Birthdays</StyledAuthLink>
           </StyledButton>
         ) : (
           <NewUser />

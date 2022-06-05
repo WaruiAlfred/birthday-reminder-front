@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { StyledSideMenu, StyledLink } from "./styled/Header.styled";
-import { FaHome,FaBirthdayCake } from "react-icons/fa";
+import { FaHome, FaBirthdayCake } from "react-icons/fa";
 import { BiBookAdd } from "react-icons/bi";
 import {
   RiLoginCircleFill,
@@ -40,7 +40,7 @@ const SideMenu = ({ sideNavToggle }) => {
           </StyledLink>
         )}
         <StyledLink to="/register">
-          <MdManageAccounts/>
+          <MdManageAccounts />
           Create {loggedIn && "new"} account
         </StyledLink>
         {loggedIn && (
@@ -55,10 +55,12 @@ const SideMenu = ({ sideNavToggle }) => {
             Login
           </StyledLink>
         )}
-        <StyledLink to="/" onClick={logout}>
-          <RiLogoutCircleFill />
-          Logout
-        </StyledLink>
+        {loggedIn && (
+          <StyledLink to="/" onClick={logout}>
+            <RiLogoutCircleFill />
+            Logout
+          </StyledLink>
+        )}
       </div>
     </StyledSideMenu>
   );
