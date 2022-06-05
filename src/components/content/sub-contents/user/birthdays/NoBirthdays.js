@@ -1,6 +1,7 @@
 import { NoBirthdaysContainerDiv } from "../../../../styled/content/sub-contents/user/User.styled";
 import { StyledButton } from "../../../../styled/forms/Form.styled";
-import addBirthdaySvg from "../../../../assets/svg/add_birthday.svg";
+import addBirthdaySvg from "../../../../../assets/svg/add_birthday.svg";
+import { StyledAuthLink } from "../../../../styled/content/sub-contents/user/User.styled";
 
 const NoBirthdays = () => {
   return (
@@ -11,7 +12,9 @@ const NoBirthdays = () => {
           Add your dear ones birthdays and let us do what we do best:{" "}
           <span>remind you</span>.
         </p>
-        <StyledButton>Add Birthday</StyledButton>
+        <StyledButton>
+          <StyledAuthLink to="/addBirthday">Add Birthdays</StyledAuthLink>
+        </StyledButton>
       </div>
     </NoBirthdaysContainerDiv>
   );
