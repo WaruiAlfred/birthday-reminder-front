@@ -5,7 +5,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
 import { useHttp } from "../../hooks/use-http";
-import LoadingSpinner from "./utilities/LoadingSpinner";
+import {BarLoadingSpinner} from "./utilities/LoadingSpinner";
 import ErrorMessage from "./utilities/ErrorMessage";
 import { AppContext } from "../../store/appContext";
 
@@ -15,7 +15,7 @@ const LoginForm = () => {
 
   return (
     <FormContainer>
-      {loading && <LoadingSpinner loading={loading} />}
+      {loading && <BarLoadingSpinner loading={loading} />}
       <h3>Login</h3>
       <Formik
         initialValues={{

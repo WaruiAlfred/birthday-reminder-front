@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   BirthdateInputs,
   FormContainer,
@@ -6,10 +7,17 @@ import {
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
+import { useHttp } from "../../hooks/use-http";
+import {BarLoadingSpinner} from "./utilities/LoadingSpinner";
+import ErrorMessage from "./utilities/ErrorMessage";
 
 const BirthdayEntryForm = () => {
+  const { sendRequest, data, error, loading } = useHttp();
+  const navigate = useNavigate();
+
   return (
     <FormContainer width="65rem">
+      {loading && <BarLoadingSpinner loading={loading} />}
       <h3>Input BirthDay</h3>
       <Formik
         initialValues={{
@@ -31,7 +39,16 @@ const BirthdayEntryForm = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            const body = {
+              friends_name: values.dearOneName,
+              year_of_birth: values.yearOfBirth,
+              month_of_birth: values.monthOfBirth,
+              day_of_birth: values.dayOfBirth,
+            };
+            sendRequest("POST", "birthdays/", body);
+
+            navigate("/birthdays");
+
             setSubmitting(false);
           }, 400);
         }}
@@ -40,9 +57,9 @@ const BirthdayEntryForm = () => {
           <div>
             <TextNumberInput
               label="Dear One's Name"
-              name="firstName"
+              name="dearOneName"
               type="text"
-              placeholder="John"
+              placeholder="John Doe"
             />
 
             <p>Birthdate:</p>
@@ -79,6 +96,7 @@ const BirthdayEntryForm = () => {
           <StyledButton type="submit">Add</StyledButton>
         </Form>
       </Formik>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </FormContainer>
   );
 };

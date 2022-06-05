@@ -8,7 +8,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
 import { useHttp } from "../../hooks/use-http";
-import LoadingSpinner from "./utilities/LoadingSpinner";
+import {BarLoadingSpinner} from "./utilities/LoadingSpinner";
 import ErrorMessage from "./utilities/ErrorMessage";
 
 const RegisterForm = () => {
@@ -22,7 +22,7 @@ const RegisterForm = () => {
 
   return (
     <FormContainer width="65rem">
-      {loading && <LoadingSpinner loading={loading} />}
+      {loading && <BarLoadingSpinner loading={loading} />}
       <h3>Create Account</h3>
       <Formik
         initialValues={{
