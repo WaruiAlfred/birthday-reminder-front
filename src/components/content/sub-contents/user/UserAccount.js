@@ -6,12 +6,11 @@ import {
 } from "../../../styled/content/sub-contents/user/UserAccount.styled";
 import { FaUserCircle } from "react-icons/fa";
 import { AppContext } from "../../../../store/appContext";
-import userEvent from "@testing-library/user-event";
 
 function UserAccount() {
   const { data, sendRequest } = useHttp();
   const { username: loggedInUser } = useContext(AppContext);
-  let username, first_name, last_name, email;
+  let username, first_name, last_name, email,id;
 
   useEffect(() => {
     const getAccountDetails = () => {
@@ -22,7 +21,9 @@ function UserAccount() {
   }, [sendRequest, loggedInUser]);
 
   if (data) {
-    ({ username, first_name, last_name, email } = data[0]);
+    ({ id,username, first_name, last_name, email } = data[0])
+    
+    localStorage.setItem('userId',id)
   }
 
   return (
