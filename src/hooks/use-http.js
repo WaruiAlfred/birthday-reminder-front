@@ -1,5 +1,6 @@
-import { useReducer, useCallback } from "react";
+import { useReducer, useCallback, useContext } from "react";
 import axios from "axios";
+import { AppContext } from "../store/appContext";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -24,6 +25,10 @@ const useHttpReducer = (_, action) => {
 
 export const useHttp = () => {
   const [httpState, dispatch] = useReducer(useHttpReducer, initialState);
+  const { loggedInUserTokenData } = useContext(AppContext);
+  const headers = {
+    headers: { Authorization: `Bearer ${loggedInUserTokenData?.access}` },
+  };
 
   const sendRequest = useCallback(
     async (method = "GET", specificUrl = "", body = {}) => {
@@ -31,7 +36,10 @@ export const useHttp = () => {
       if (method === "GET") {
         try {
           dispatch({ type: "SEND" });
-          const response = await axios.get(`${BASE_URL}${specificUrl}`);
+          const response = await axios.get(
+            `${BASE_URL}${specificUrl}`,
+            headers
+          );
           dispatch({ type: "RESPONSE", responseData: response.data });
         } catch (error) {
           dispatch({ type: "ERROR", errorMessage: error.message });
@@ -42,7 +50,11 @@ export const useHttp = () => {
       if (method === "POST") {
         try {
           dispatch({ type: "SEND" });
-          const response = await axios.post(`${BASE_URL}${specificUrl}`, body);
+          const response = await axios.post(
+            `${BASE_URL}${specificUrl}`,
+            body,
+            headers
+          );
           dispatch({ type: "RESPONSE", responseData: response.data });
         } catch (error) {
           console.log(error);
