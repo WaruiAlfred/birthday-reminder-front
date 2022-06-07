@@ -1,13 +1,28 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { Description, Join } from "./styled/Home.styled";
 import Card from "./styled/Card.styled";
 import NewUser from "./content/sub-contents/user/NewUser";
 import { AppContext } from "../store/appContext";
 import { StyledAuthLink } from "./styled/content/sub-contents/user/User.styled";
-import { StyledButton } from "./styled/forms/Form.styled";
+import { StyledButton } from "./styled/forms/Button.styled";
+import { useHttp } from "../hooks/use-http";
 
-function Home() {
-  const { loggedInUserTokenData } = useContext(AppContext);
+const Home = () => {
+  const { loggedInUserTokenData, username: loggedInUser } =
+    useContext(AppContext);
+  const { data, sendRequest } = useHttp();
+
+  useEffect(() => {
+    if (loggedInUserTokenData) {
+      sendRequest("GET", `accounts/users/?username=${loggedInUser}`);
+    }
+  }, [sendRequest, loggedInUser, loggedInUserTokenData]);
+
+  if (data) {
+    const { id } = data[0];
+
+    localStorage.setItem("userId", id);
+  }
 
   return (
     <Fragment>
@@ -39,6 +54,6 @@ function Home() {
       </Join>
     </Fragment>
   );
-}
+};
 
 export default Home;
