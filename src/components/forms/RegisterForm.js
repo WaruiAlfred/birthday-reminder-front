@@ -1,14 +1,11 @@
 import { useNavigate, Link } from "react-router-dom";
-import {
-  FormContainer,
-  RegisterFormInputs,
-  StyledButton,
-} from "../styled/forms/Form.styled";
+import { FormContainer, RegisterFormInputs } from "../styled/forms/Form.styled";
+import { StyledButton } from "../styled/forms/Button.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
 import { useHttp } from "../../hooks/use-http";
-import {BarLoadingSpinner} from "./utilities/LoadingSpinner";
+import { BarLoadingSpinner } from "./utilities/LoadingSpinner";
 import ErrorMessage from "./utilities/ErrorMessage";
 
 const RegisterForm = () => {
@@ -16,7 +13,7 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   if (data) {
-    console.log(data)
+    console.log(data);
     navigate("/login");
   }
 

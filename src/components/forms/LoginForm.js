@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FormContainer, StyledButton } from "../styled/forms/Form.styled";
+import { FormContainer } from "../styled/forms/Form.styled";
+import { StyledButton } from "../styled/forms/Button.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
 import { useHttp } from "../../hooks/use-http";
-import {BarLoadingSpinner} from "./utilities/LoadingSpinner";
+import { BarLoadingSpinner } from "./utilities/LoadingSpinner";
 import ErrorMessage from "./utilities/ErrorMessage";
 import { AppContext } from "../../store/appContext";
 

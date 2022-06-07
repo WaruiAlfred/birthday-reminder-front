@@ -61,33 +61,6 @@ export const StyledInputAndLabel = styled.div`
   }
 `;
 
-//Button
-export const StyledButton = styled.button`
-  align-self: center;
-  border-radius: 3rem;
-  border: none;
-  box-shadow: ${({ theme }) => theme.box_shadow_1};
-  background-image: linear-gradient(
-    to bottom right,
-    ${({ theme }) => theme.colors.primary_light},
-    ${({ theme }) => theme.colors.primary}
-  );
-  color: #fff;
-  font-size: 1.7rem;
-  width: ${({ width }) => width || "17rem"};
-  height: 4rem;
-
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-2px);
-  }
-
-  &:focus {
-    border: none;
-    outline: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
 // RegisterForm
 export const RegisterFormInputs = styled.div`
   display: flex;
@@ -104,44 +77,5 @@ export const BirthdateInputs = styled.div`
 
   div {
     width: 90%;
-  }
-`;
-
-// Error Message Div
-export const ErrorMessageDiv = styled.div`
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  border: none;
-  margin: 1.5rem 0;
-  background-color: #f00000;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-`;
-
-// Success Message Div
-export const SuccessMessageDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  background-color: #77dd77;
-  color: #fff;
-
-  button {
-    border: none;
-    background: none;
-    font-size: 3rem;
-    font-weight: bold;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:focus {
-      border: none;
-      outline: ${({ theme }) => theme.colors.primary};
-    }
   }
 `;

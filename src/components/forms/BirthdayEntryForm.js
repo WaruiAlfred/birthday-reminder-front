@@ -1,14 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import {
-  BirthdateInputs,
-  FormContainer,
-  StyledButton,
-} from "../styled/forms/Form.styled";
+import { BirthdateInputs, FormContainer } from "../styled/forms/Form.styled";
+import { StyledButton } from "../styled/forms/Button.styled";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextNumberInput } from "./utilities/FormInputTypes";
 import { useHttp } from "../../hooks/use-http";
-import {BarLoadingSpinner} from "./utilities/LoadingSpinner";
+import { BarLoadingSpinner } from "./utilities/LoadingSpinner";
 import ErrorMessage from "./utilities/ErrorMessage";
 
 const BirthdayEntryForm = () => {

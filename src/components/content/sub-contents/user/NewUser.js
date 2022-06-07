@@ -2,7 +2,7 @@ import {
   NewUserContainerDiv,
   StyledAuthLink,
 } from "../../../styled/content/sub-contents/user/User.styled";
-import { StyledButton } from "../../../styled/forms/Form.styled";
+import { StyledButton } from "../../../styled/forms/Button.styled";
 
 const NewUser = () => {
   return (

@@ -10,7 +10,7 @@ import { AppContext } from "../../../../store/appContext";
 function UserAccount() {
   const { data, sendRequest } = useHttp();
   const { username: loggedInUser } = useContext(AppContext);
-  let username, first_name, last_name, email,id;
+  let username, first_name, last_name, email;
 
   useEffect(() => {
     const getAccountDetails = () => {
@@ -21,9 +21,9 @@ function UserAccount() {
   }, [sendRequest, loggedInUser]);
 
   if (data) {
-    ({ id,username, first_name, last_name, email } = data[0])
-    
-    localStorage.setItem('userId',id)
+    ({ username, first_name, last_name, email } = data[0]);
+
+    // localStorage.setItem('userId',id)
   }
 
   return (

@@ -1,4 +1,4 @@
-import { ErrorMessageDiv } from "../../styled/forms/Form.styled";
+import { ErrorMessageDiv } from "../../styled/forms/Messages.styled";
 
 const ErrorMessage = ({ children }) => {
   return <ErrorMessageDiv>{children}</ErrorMessageDiv>;

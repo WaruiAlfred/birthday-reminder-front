@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  padding: 1.5rem;
+  padding: 2rem;
   margin: 0.6rem auto;
   border-radius: 2rem;
   box-shadow: 1rem 1rem 1rem ${({ theme }) => theme.colors.grey_light_2};
