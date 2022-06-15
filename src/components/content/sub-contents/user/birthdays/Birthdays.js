@@ -33,6 +33,7 @@ const Birthdays = () => {
     content = (
       <Fragment>
         <p>These are your dear ones' birthdays</p>
+        <h5>Current date: {moment(new Date()).format("L")} </h5>
         <div className="birthdays">
           {data.map((birthday, i) => (
             <div key={i} className="birthday">
@@ -48,7 +49,16 @@ const Birthdays = () => {
                   ).format("L")}
                 </p>
               </div>
-              <p>Due</p>
+              <p>
+                Turning {""}
+                {moment(
+                  new Date(
+                    birthday.year_of_birth,
+                    birthday.month_of_birth,
+                    birthday.day_of_birth
+                  )
+                ).to(new Date(), true)}
+              </p>
             </div>
           ))}
           <div className="buttons">

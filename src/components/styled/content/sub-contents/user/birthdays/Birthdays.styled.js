@@ -20,6 +20,11 @@ export const Wrapper = styled.div`
     margin: 2rem 0;
   }
 
+  .content > h5 {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
   .birthdays {
     background-color: ${({ theme }) => theme.content_bg};
     border-radius: 1rem;
