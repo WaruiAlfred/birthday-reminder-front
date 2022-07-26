@@ -21,9 +21,15 @@ export const Description = styled.div`
   }
 
   div {
+    width: 50vw;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  div > * {
+    width: 22rem;
   }
 `;
 

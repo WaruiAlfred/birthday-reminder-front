@@ -7,6 +7,6 @@ export const theme = {
     grey_light_2: "#cecece",
   },
 
-  box_shadow_1: "0 0.7rem 1.5rem #cecece",
+  box_shadow_1: "0 0.7rem 1rem #cecece",
   content_bg: "rgba(229,56,85,0.08)",
 };
