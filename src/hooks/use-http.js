@@ -27,7 +27,9 @@ export const useHttp = () => {
   const [httpState, dispatch] = useReducer(useHttpReducer, initialState);
   const { loggedInUserTokenData } = useContext(AppContext);
   const headers = {
-    headers: { Authorization: `Bearer ${loggedInUserTokenData?.access}` },
+    headers: {
+      Authorization: `Bearer ${loggedInUserTokenData?.access}`,
+    },
   };
 
   const sendRequest = useCallback(
