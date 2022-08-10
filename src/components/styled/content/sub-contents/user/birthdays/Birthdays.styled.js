@@ -41,10 +41,16 @@ export const Wrapper = styled.div`
     border-radius: 0.9rem;
     padding: 2rem;
     max-width: 70rem;
+    box-shadow: 0.6rem 1rem 2rem gray;
 
-    &__header{
+    &__header,
+    &__data {
       display: flex;
       justify-content: space-between;
+    }
+
+    &__data {
+      margin-top: 2rem;
     }
   }
 
