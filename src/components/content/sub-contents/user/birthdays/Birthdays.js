@@ -49,16 +49,27 @@ const Birthdays = () => {
                   ).format("L")}
                 </p>
               </div>
-              <p>
-                Turning {""}
-                {moment(
-                  new Date(
-                    birthday.year_of_birth,
-                    birthday.month_of_birth,
-                    birthday.day_of_birth
-                  )
-                ).to(new Date(), true)}
-              </p>
+              <div className="birthday__data">
+                <p>
+                  Turning {""}
+                  {moment(
+                    new Date(
+                      birthday.year_of_birth,
+                      birthday.month_of_birth,
+                      birthday.day_of_birth
+                    )
+                  ).to(new Date(), true)}
+                </p>
+                <p>
+                  {new Date().getMonth() - birthday.month_of_birth === 0
+                    ? "Today"
+                    : new Date().getMonth() - birthday.month_of_birth < 0
+                    ? `In ${
+                        new Date().getMonth() - birthday.month_of_birth
+                      } months`.replace("-", "")
+                    : "Next year"}
+                </p>
+              </div>
             </div>
           ))}
           <div className="buttons">
