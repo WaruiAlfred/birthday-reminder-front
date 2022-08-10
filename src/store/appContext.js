@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   loggedInUserTokenData: null,
-  username:'',
+  username: "",
   onSetToken: (token) => {},
   logout: () => {},
 };
@@ -30,8 +30,15 @@ const AppContextProvider = ({ children }) => {
   );
   const navigate = useNavigate();
 
-  const storedToken = localStorage.getItem("tokenData");
-  const username = localStorage.getItem("username");
+  let storedToken = localStorage.getItem("tokenData");
+  let username = localStorage.getItem("username");
+
+  setTimeout(() => {
+    localStorage.removeItem("tokenData");
+    localStorage.removeItem("username");
+    storedToken = "";
+    username = "";
+  }, 900000);
 
   const setTokenHandler = useCallback(
     (token, username) => {
