@@ -34,11 +34,8 @@ const AppContextProvider = ({ children }) => {
   let username = localStorage.getItem("username");
 
   setTimeout(() => {
-    localStorage.removeItem("tokenData");
-    localStorage.removeItem("username");
-    storedToken = "";
-    username = "";
-  }, 900000);
+    logoutHandler();
+  }, 1.08e7);
 
   const setTokenHandler = useCallback(
     (token, username) => {
