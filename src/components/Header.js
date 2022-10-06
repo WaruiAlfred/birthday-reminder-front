@@ -14,6 +14,7 @@ function Header() {
 
   return (
     <StyledHeader>
+      {" "}
       {/* Add onclick event */}
       {showSideNav && <SideMenu sideNavToggle={setShowSideNav} />}
       <div>
